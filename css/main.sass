@@ -1,3 +1,64 @@
 ---
 ---
 
+$default-text-color: #333
+$gray-text-color: #999
+
+$home-color: #7853BB
+$professionnel-color: #4892FC
+$particulier-color: #54AF3D
+$professeur-color: #E9604E
+
+body
+    color: $default-text-color
+
+a, a:visited, a:hover
+    text-decoration: none
+
+.subpage__title
+    text-align: center
+    margin: 1rem 0
+
+.navbar__list
+    list-style: none
+    display: flex
+    border-bottom: 1px solid #CCC
+
+.navbar__item
+    text-align: center
+    flex-grow: 1
+    cursor: pointer
+    margin: 0
+
+.navbar__link
+    display: block
+    padding: calc(0.5rem + 5px) 0 0.25rem
+
+.navbar__item--home
+    border-color: $home-color
+    .navbar__link
+        color: $home-color
+
+.navbar__item--professionnel
+    border-color: $professionnel-color
+    .navbar__link
+        color: $professionnel-color
+
+.navbar__item--particulier
+    border-color: $particulier-color
+    .navbar__link
+        color: $particulier-color
+
+.navbar__item--professeur
+    border-color: $professeur-color
+    .navbar__link
+        color: $professeur-color
+
+.tab-professionnel .navbar__item--professionnel,
+.tab-particulier .navbar__item--particulier,
+.tab-professeur .navbar__item--professeur
+    background: none
+    border-bottom-width: 5px
+    border-bottom-style: solid
+    .navbar__link
+        cursor: default
