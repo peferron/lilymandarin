@@ -1,0 +1,43 @@
+.subpage__title, .navbar__list
+    background: transparentize(#33C3F0, 0.95)
+
+.subpage__title
+    text-align: center
+    padding: 1rem 0
+    margin: 0
+
+.navbar__list
+    list-style: none
+    display: flex
+    margin-bottom: 0
+
+.navbar__item
+    text-align: center
+    flex-grow: 1
+    cursor: pointer
+    margin: 0
+    border-bottom: 5px solid transparent
+    transition: border-bottom-color 0.4s ease-out
+
+.navbar__link
+    display: block
+    padding: calc(0.5rem + 5px) 0 0.25rem
+
+@mixin navbar-item($page, $color)
+    .navbar__item--#{$page}
+        &:hover
+            border-bottom-color: transparentize($color, 0.8)
+        .navbar__link
+            color: $color
+        .#{$page} &
+            border-bottom-color: $color
+            .navbar__link
+                cursor: default
+
+@include navbar-item(home, $home-color)
+@include navbar-item(professionnel, $professionnel-color)
+@include navbar-item(particulier, $particulier-color)
+@include navbar-item(professeur, $professeur-color)
+
+.subpage__content
+    padding: $padding
