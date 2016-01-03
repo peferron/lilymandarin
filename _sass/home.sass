@@ -1,13 +1,17 @@
 .home__top
-    height: 100vh
+    height: 70vh
     position: relative
+    background-image: url('../img/pudong/pudong.jpg')
     background-repeat: no-repeat
     background-size: cover
     background-position: center center
 
 .home__title
     text-align: center
-    padding-top: 1rem
+    padding-top: 2rem
+    color: rgba(255, 255, 255, 0.7)
+    h1
+        font-size: 8rem
 
 .home__top__credit
     position: absolute
@@ -17,17 +21,6 @@
     opacity: 0.4
     font-size: 0.5em
     display: none
-
-.home__top--1
-    background-image: url('../img/home/bund.jpg')
-    .home__title
-        color: white
-
-.home__top--2
-    background-position: center 20%
-    background-image: url('../img/home/great_wall.jpg')
-    .home__top__credit--great-wall
-        display: block
 
 .home__tagline__container
     line-height: 0
@@ -40,18 +33,17 @@
 .home__tagline
     line-height: 0
     display: inline-block
-    padding: 1rem 2rem 0
+    padding: 2rem 4rem 0
     border-radius: 1rem 1rem 0 0
-    color: black
     background: rgba(255, 255, 255, 0.8)
     h3
-        margin: 0
+        margin-bottom: 1rem
 
 .home__tagline__arrow
     display: inline-block
     height: 1.2em
     width: 0.6em
-    background-image: url('../img/home/arrow.svg')
+    background-image: url('../img/arrow/arrow-black.svg')
     background-repeat: no-repeat
     background-size: contain
     background-position: 0 center
@@ -67,3 +59,19 @@
 
 .home__bottom
     padding: $padding
+    max-width: $max-width
+    margin: 0 auto
+
+    section + section
+        margin-top: $padding
+
+.home__button
+    min-width: 31rem
+
+.home__button--professionnel
+    @include button-color($professionnel-color)
+    + span
+        margin: 0 1rem
+
+.home__button--particulier
+    @include button-color($particulier-color)

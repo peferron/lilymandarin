@@ -1,4 +1,4 @@
-.subpage__title, .navbar__list
+.subpage__title, .navbar
     background: transparentize(#33C3F0, 0.95)
 
 .subpage__title
@@ -17,11 +17,12 @@
     cursor: pointer
     margin: 0
     border-bottom: 5px solid transparent
-    transition: border-bottom-color 0.4s ease-out
+    transition: border-bottom-color 0.2s ease-out
 
 .navbar__link
     display: block
     padding: calc(0.5rem + 5px) 0 0.25rem
+    font-weight: $bold-font-weight
 
 @mixin navbar-item($page, $color)
     .navbar__item--#{$page}
@@ -37,7 +38,25 @@
 @include navbar-item(home, $home-color)
 @include navbar-item(professionnel, $professionnel-color)
 @include navbar-item(particulier, $particulier-color)
-@include navbar-item(professeur, $professeur-color)
+@include navbar-item(formatrice, $formatrice-color)
 
 .subpage__content
     padding: $padding
+    max-width: $max-width
+    margin: 0 auto
+
+    section + section
+        margin-top: $padding
+        padding-top: $padding
+        border-top: 1px solid #CCC
+
+.button--formatrice
+    @include button-color($formatrice-color)
+    margin: 0
+
+.line
+    height: 1px
+    background: #CCC
+
+.subpage__content > section + section
+    border-top: 1px solid #CCC
