@@ -1,0 +1,43 @@
+.review
+    font-size: 0.8em
+    &:nth-child(2n+1)
+        text-align: right
+    + .review
+        margin-top: 2rem
+
+.review__container
+    display: inline-block
+
+.review__text, .review__photo
+    display: table-cell
+    text-align: left
+    vertical-align: top
+
+.review__photo
+    padding-right: 2rem
+
+.review__photo__img
+    width: 150px
+    height: 150px
+    border-radius: 100%
+    display: block
+    margin-bottom: 1rem
+
+.review__photo__img--placeholder
+    background: $formatrice-color
+
+.review__photo__name
+    text-align: center
+    font-weight: $bold-font-weight
+    color: #666
+
+.review__text
+    white-space: pre-line
+    background: #F0F0F0
+    padding: 1rem
+    line-height: 1.428571429
+    border-radius: 4px
+
+@media screen and (min-width: 768px)
+    .review__container
+        max-width: 70%
