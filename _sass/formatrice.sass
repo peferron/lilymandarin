@@ -1,43 +1,43 @@
-.review
-    font-size: 0.8em
-    &:nth-child(2n+1)
-        text-align: right
-    + .review
-        margin-top: 2rem
+@import 'review.sass'
 
-.review__container
-    display: inline-block
-
-.review__text, .review__photo
-    display: table-cell
-    text-align: left
-    vertical-align: top
-
-.review__photo
-    padding-right: 2rem
-
-.review__photo__img
-    width: 150px
-    height: 150px
-    border-radius: 100%
-    display: block
-    margin-bottom: 1rem
-
-.review__photo__img--placeholder
-    background: $formatrice-color
-
-.review__photo__name
+.formatrice__greeting
     text-align: center
-    font-weight: $bold-font-weight
-    color: #666
+    margin-bottom: 2.5rem
 
-.review__text
-    white-space: pre-line
-    background: $gray-bg-color
-    padding: 1rem
-    line-height: 1.428571429
-    border-radius: 4px
+.formatrice__portrait__container
+    line-height: 0
 
-@media screen and (min-width: 768px)
-    .review__container
-        max-width: 70%
+.formatrice__portrait
+    border-radius: 100%
+
+.formatrice__hello
+    font-weight: $normal-font-weight !important
+    margin-bottom: 0
+
+.formatrice__hello--zh
+    font-size: 6em
+    color: $formatrice-color
+
+.formatrice__hello--fr
+    color: $gray-text-color
+
+@media screen and (min-width: 700px)
+    .formatrice__greeting
+        display: table
+        width: 100%
+    .formatrice__portrait__container, .formatrice__hello__container
+        display: table-cell
+        vertical-align: middle
+        width: 50%
+    .formatrice__portrait__container
+        text-align: right
+        padding-right: 1rem
+    .formatrice__hello__container
+        padding-left: 1rem
+        text-align: left
+        > div
+            display: inline-block
+            text-align: center
+
+.zh
+    color: $gray-text-color

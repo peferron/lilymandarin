@@ -1,6 +1,6 @@
 .subpage__title
     text-align: center
-    padding: 1rem 0
+    padding: 2rem 0 1rem
     margin: 0
 
 .navbar__list
@@ -18,7 +18,7 @@
 
 .navbar__link
     display: block
-    padding: calc(0.5rem + 5px) 0 0.25rem
+    padding: 1rem 0
     font-weight: $bold-font-weight
 
 @mixin navbar-item($page, $color)
@@ -37,12 +37,13 @@
 @include navbar-item(particulier, $particulier-color)
 @include navbar-item(formatrice, $formatrice-color)
 
-.subpage__content
-    padding: $padding
-    max-width: $max-width
-    margin: 0 auto
+.subpage__content__container
     background: $white-bg-color
 
+.subpage__content
+    max-width: $max-width
+    margin: 0 auto
+    padding: $padding
     section + section
         margin-top: $padding
         padding-top: $padding
