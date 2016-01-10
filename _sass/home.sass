@@ -7,12 +7,15 @@
     background-size: cover
     background-position: center center
 
-.home__title
+.home__title, .home__subtitle
     text-align: center
-    padding-top: 2rem
     color: rgba(255, 255, 255, 0.7)
-    h1
-        font-size: 8rem
+
+.home__title
+    font-size: 5rem
+
+.home__subtitle, .home__tagline
+    font-size: 1.8rem
 
 .home__top__credit
     position: absolute
@@ -23,52 +26,24 @@
     font-size: 0.5em
     display: none
 
-.home__tagline__container
-    line-height: 0
+.home__tagline
     position: absolute
     bottom: 0
-    left: 10%
-    right: 10%
+    left: 0
+    width: 100%
     text-align: center
-
-.home__tagline
-    line-height: 0
-    display: inline-block
-    padding: 2rem 4rem 0
-    border-radius: 1rem 1rem 0 0
-    background: rgba(255, 255, 255, 0.8)
-    h3
-        margin-bottom: 1rem
-
-.home__tagline__arrow
-    display: inline-block
-    height: 1.2em
-    width: 0.6em
-    background-image: url('../img/arrow/arrow-black.svg')
-    background-repeat: no-repeat
-    background-size: contain
-    background-position: 0 center
-    animation: bounce 0.8s linear infinite
-
-@keyframes bounce
-    0%, 100%
-        transform: rotateZ(90deg) translateX(-0.3em)
-        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1)
-    50%
-        transform: rotateZ(90deg) translateX(0.1em)
-        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19)
+    background: $gray-bg-color
+    box-sizing: border-box
+    padding: 1rem
 
 .home__bottom
-    padding: $padding
-    max-width: $max-width
-    margin: 0 auto
     background: $white-bg-color
-
-    section + section
-        margin-top: $padding
+    section
+        max-width: $max-width
+        margin: 0 auto
 
 .home__button
-    min-width: 31rem
+    width: 100%
 
 .home__button--professionnel
     @include button-color($professionnel-color)
@@ -77,3 +52,6 @@
 
 .home__button--particulier
     @include button-color($particulier-color)
+
+.home__or
+    text-align: center

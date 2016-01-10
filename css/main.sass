@@ -1,9 +1,9 @@
 ---
 ---
 
-$padding: 6rem
 $max-width: 100rem
 
+@import 'normalize'
 @import 'colors'
 @import 'fonts'
 
@@ -13,38 +13,44 @@ body
     min-height: 100vh
     flex-direction: column
 
-article
-    flex: 1
-
 a, a:visited, a:hover
     text-decoration: none
 
-footer
-    font-size: 1.2rem
-
-.footer__content
-    padding: 2rem $padding
-    max-width: $max-width
-    margin: 0 auto
-    a
-        color: $default-text-color
-
 .button
-    font-size: 1.6rem
+    display: inline-block
+    text-align: center
+    letter-spacing: .1rem
+    text-transform: uppercase
+    text-decoration: none
+    cursor: pointer
+    box-sizing: border-box
+    border-radius: 4px
+    font-size: 1.5rem
     font-weight: $bold-font-weight
     padding: 1rem 3rem
-    height: auto
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.32), 0 2px 10px 0 rgba(0, 0, 0, 0.24)
+    color: white
+    margin: 0
 
 ul
     list-style: disc inside
 
-.bold-headings
-    h1, h2, h3, h4, h5, h6
-        font-weight: $bold-font-weight
+ol, ul
+    padding-left: 0
+    margin-top: 0
 
-h5
-    margin-bottom: 0
+ul ul, ul ol, ol ol, ol ul
+    margin: 1.5rem 0 1.5rem 3rem
+    font-size: 90%
+
+li
+    margin-bottom: 1rem
+
+pre, blockquote, dl, figure, table, p, ul, ol, form
+    margin-bottom: 2.5rem
+
+p
+    margin-top: 0
 
 .button__arrow
     display: inline-block
@@ -58,10 +64,12 @@ h5
     vertical-align: middle
 
 @mixin button-color($color)
-    background-color: $color !important
-    border-color: $color !important
+    background-color: $color
+    border: 1px solid $color
 
+@import 'padding'
 @import 'home'
 @import 'subpage'
 @import 'professionnel'
 @import 'formatrice'
+@import 'footer'

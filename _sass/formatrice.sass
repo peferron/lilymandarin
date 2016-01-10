@@ -6,38 +6,73 @@
 
 .formatrice__portrait__container
     line-height: 0
+    margin-bottom: 2.5rem
 
 .formatrice__portrait
+    width: 280px
+    height: 280px
     border-radius: 100%
 
-.formatrice__hello
-    font-weight: $normal-font-weight !important
-    margin-bottom: 0
-
-.formatrice__hello--zh
-    font-size: 6em
-    color: $formatrice-color
-
-.formatrice__hello--fr
-    color: $gray-text-color
-
-@media screen and (min-width: 700px)
+@media screen and (min-width: 768px)
     .formatrice__greeting
         display: table
         width: 100%
-    .formatrice__portrait__container, .formatrice__hello__container
+    .formatrice__portrait__container, .formatrice__greeting__text
         display: table-cell
         vertical-align: middle
-        width: 50%
     .formatrice__portrait__container
         text-align: right
-        padding-right: 1rem
-    .formatrice__hello__container
-        padding-left: 1rem
+        padding-right: 2rem
+    .formatrice__greeting__text
+        padding-left: 2rem
         text-align: left
-        > div
-            display: inline-block
-            text-align: center
 
-.zh
-    color: $gray-text-color
+.doodle
+    text-align: center
+    display: inline-block
+    width: 50%
+    box-sizing: border-box
+    vertical-align: top
+
+.doodle__img
+    background-repeat: no-repeat
+    background-position: center bottom
+    background-size: contain
+    height: 120px
+
+.doodle__title
+    margin: 1rem 0
+
+.doodle__subtitle
+    font-size: 1.5rem
+
+$padding: 2rem
+
+.doodle--1
+    padding: 0 $padding/2 2*$padding 0
+    .doodle__img
+        background-image: url('/img/doodles/doodle_1.svg')
+
+.doodle--2
+    padding: 0 0 2*$padding $padding/2
+    .doodle__img
+        background-image: url('/img/doodles/doodle_2.svg')
+
+.doodle--3
+    padding: 0 $padding/2 0 0
+    .doodle__img
+        background-image: url('/img/doodles/doodle_3.svg')
+
+.doodle--4
+    padding: 0  0 0 $padding/2
+    .doodle__img
+        background-image: url('/img/doodles/doodle_4.svg')
+
+// @media screen and (min-width: 1000px)
+//     .doodle
+//         width: 25%
+//         padding: 0 $padding 0 0
+//     .doodle__img
+//         height: 150px
+//     .doodle--4
+//         padding-right: 0

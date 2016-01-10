@@ -2,6 +2,7 @@
     text-align: center
     padding: 2rem 0 1rem
     margin: 0
+    font-weight: $normal-font-weight
 
 .navbar__list
     list-style: none
@@ -15,6 +16,8 @@
     margin: 0
     border-bottom: 5px solid transparent
     transition: border-bottom-color 0.2s ease-out
+    text-transform: uppercase
+    font-size: 1.2rem
 
 .navbar__link
     display: block
@@ -43,15 +46,13 @@
 .subpage__content
     max-width: $max-width
     margin: 0 auto
-    padding: $padding
     section + section
-        margin-top: $padding
-        padding-top: $padding
         border-top: 1px solid #CCC
+    section p:last-child
+        margin-bottom: 0
 
 .button--formatrice
     @include button-color($formatrice-color)
-    margin: 0
 
 .line
     height: 1px
