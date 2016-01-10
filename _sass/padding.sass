@@ -1,17 +1,16 @@
 @mixin padding($vp, $hp)
+    section + section
+        margin-top: $vp
+        padding-top: $vp
+
+    .home__bottom, .subpage__content
+        padding: $vp $hp
+
     .footer__content
         padding-left: $hp
         padding-right: $hp
 
-    .home__bottom
-        padding: $vp $hp
-        section + section
-            margin-top: $vp
-
-    .subpage__content
-        padding: $vp $hp
-        section + section
-            margin-top: $vp
-            padding-top: $vp
+    .subpage__title
+        margin: $vp 0 ($vp - 1rem)
 
 @include padding(2rem, 2rem)
