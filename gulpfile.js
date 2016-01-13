@@ -45,10 +45,11 @@ gulp.task('prefix-css', ['create-dist'], () =>
         .pipe(gulp.dest('dist'))
 );
 
-// Optimize images
+// Optimize images. The Pudong background images have been manually optimized.
 
 gulp.task('optimize-img', ['create-dist'], () =>
-    gulp.src('_site/img/**/*.{png,jpg,svg}', {base: '_site'})
+    gulp.src(['_site/img/**/*.{png,jpg,svg}', '!_site/img/pudong/*', '!_site/img/opengraph/*'],
+        {base: '_site'})
         // Running lossy optimizers first, then lossless second, usually gives the best results.
         .pipe(imagemin({use: [
             pngquant({quality: '50-70'}),
