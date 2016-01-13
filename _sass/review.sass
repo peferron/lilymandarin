@@ -1,5 +1,5 @@
 .review
-    font-size: 1.5rem
+    font-size: $h6-font-size
     &:nth-child(2n+1)
         text-align: right
     + .review
@@ -8,7 +8,7 @@
 .review__container
     display: inline-block
 
-.review__text, .review__photo
+.review__text__container, .review__photo
     display: table-cell
     text-align: left
     vertical-align: top
@@ -18,7 +18,9 @@
 
 .review__photo__img
     width: 20vw
+    height: 20vw
     max-width: 150px
+    max-height: 150px
     border-radius: 100%
     display: block
     margin-bottom: 1rem
@@ -38,6 +40,8 @@
     line-height: 1.428571429
     border-radius: 4px
 
-@media screen and (min-width: 768px)
+@media screen and (min-width: 768px) // iPad
     .review__container
         max-width: 70%
+    .review__text
+        padding: 2rem

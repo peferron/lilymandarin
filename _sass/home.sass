@@ -7,24 +7,25 @@
     background-size: cover
     background-position: center center
 
-.home__title, .home__subtitle
+.home__title, .home__subtitle__container
     text-align: center
-    color: rgba(255, 255, 255, 0.7)
+    color: white
+    opacity: 1
 
 .home__title
     font-size: 5rem
+    padding-top: 1rem
+
+.home__subtitle
+    display: inline-block
+    background-image: url('../img/calligraphy/calligraphy.png')
+    background-repeat: no-repeat
+    background-size: contain
+    background-position: center bottom
+    height: 8rem
 
 .home__subtitle, .home__tagline
-    font-size: 1.8rem
-
-.home__top__credit
-    position: absolute
-    left: 1rem
-    bottom: 1rem
-    color: white
-    opacity: 0.4
-    font-size: 0.5em
-    display: none
+    font-size: $h5-font-size
 
 .home__tagline
     position: absolute
@@ -34,7 +35,8 @@
     text-align: center
     background: $gray-bg-color
     box-sizing: border-box
-    padding: 1rem
+    font-weight: $bold-font-weight
+    padding: 1rem 0
 
 .home__bottom
     background: $white-bg-color
@@ -43,17 +45,35 @@
     max-width: $max-width
     margin: 0 auto
 
-.home__button
-    width: 100%
+.home__buttons
+    text-align: center
 
 .home__button--professionnel
     @include button-color($professionnel-color)
-    + span
-        margin: 0 1rem
 
 .home__button--particulier
     @include button-color($particulier-color)
 
 .home__or
-    text-align: center
-    margin: 0.5rem 0
+    margin: 0.5rem
+
+@media screen and (min-width: 414px) // iPhone 6 Plus
+    .home__title
+        padding-top: 2rem
+    .home__subtitle, .home__tagline
+        font-size: $h4-font-size
+    .home__subtitle
+        height: 10.5rem
+    .home__tagline
+        padding: 2rem 0
+
+@media screen and (min-width: 768px) // iPad
+    .home__title
+        padding-top: 4rem
+    .home__button, .home__or
+        vertical-align: middle
+    .home__button
+        min-width: 31rem
+    .home__or
+        display: inline-block
+        margin: 0 1rem

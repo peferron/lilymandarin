@@ -1,5 +1,7 @@
 @import 'review.sass'
 
+$doodle-padding: 2rem
+
 .formatrice__greeting
     text-align: center
     margin-bottom: 2.5rem
@@ -44,35 +46,36 @@
     margin: 1rem 0
 
 .doodle__subtitle
-    font-size: 1.5rem
-
-$padding: 2rem
+    font-size: $h6-font-size
 
 .doodle--1
-    padding: 0 $padding/2 2*$padding 0
+    padding: 0 $doodle-padding/2 2*$doodle-padding 0
     .doodle__img
         background-image: url('/img/doodles/doodle_1.svg')
 
 .doodle--2
-    padding: 0 0 2*$padding $padding/2
+    padding: 0 0 2*$doodle-padding $doodle-padding/2
     .doodle__img
         background-image: url('/img/doodles/doodle_2.svg')
 
 .doodle--3
-    padding: 0 $padding/2 0 0
+    padding: 0 $doodle-padding/2 0 0
     .doodle__img
         background-image: url('/img/doodles/doodle_3.svg')
 
 .doodle--4
-    padding: 0  0 0 $padding/2
+    padding: 0 0 0 $doodle-padding/2
     .doodle__img
         background-image: url('/img/doodles/doodle_4.svg')
 
-// @media screen and (min-width: 1000px)
-//     .doodle
-//         width: 25%
-//         padding: 0 $padding 0 0
-//     .doodle__img
-//         height: 150px
-//     .doodle--4
-//         padding-right: 0
+@media screen and (min-width: 414px) // iPhone 6 Plus
+    .doodle__img
+        height: 150px
+
+@media screen and (min-width: 768px) // iPad
+    .doodle__img
+        height: 200px
+    .doodle__title
+        font-size: $h4-font-size
+    .doodle__subtitle
+        font-size: $h5-font-size

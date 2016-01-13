@@ -2,6 +2,10 @@
     text-align: center
     font-weight: $normal-font-weight
 
+.navbar
+    max-width: $max-width
+    margin: 0 auto
+
 .navbar__list
     list-style: none
     display: flex
@@ -15,7 +19,7 @@
     border-bottom: 5px solid transparent
     transition: border-bottom-color 0.2s ease-out
     text-transform: uppercase
-    font-size: 1.2rem
+    font-size: $h7-font-size
 
 .navbar__link
     display: block
@@ -38,6 +42,9 @@
 @include navbar-item(particulier, $particulier-color)
 @include navbar-item(formatrice, $formatrice-color)
 
+.navbar__item--professionnel__extra
+    display: none
+
 .subpage__content__container
     background: $white-bg-color
 
@@ -56,3 +63,14 @@
         margin-bottom: 1rem
     ul
         margin-bottom: 0
+
+@media screen and (min-width: 414px) // iPhone 6 Plus
+    .navbar__item
+        font-size: $h6-font-size
+
+@media screen and (min-width: 768px) // iPad
+    .navbar__item
+        width: 25%
+    .navbar__item--professionnel__extra
+        display: inline
+
