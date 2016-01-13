@@ -72,7 +72,5 @@ gulp.task('build', ['create-dist', 'prefix-css', 'optimize-img']);
 
 gulp.task('deploy', ['build'], () =>
     gulp.src('dist/**/*')
-        .pipe(ghPages({
-            branch: 'gh-pages-private'
-        }))
+        .pipe(ghPages())
 );
