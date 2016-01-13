@@ -2,7 +2,7 @@
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
 
   <meta charset="utf-8">
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %} | {{ site.appname }}</title>
 
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,500">
 
@@ -16,7 +16,7 @@
   <link rel="canonical" href="{{ site.url }}{{ page.url | replace:'index.html','' }}">
 
   <meta property="og:url" content="{{ site.url }}">
-  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:title" content="{{ site.appname }} | {% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
   <meta property="og:description" content="{{ site.description }}">
   <meta property="og:site_name" content="{{ site.appname }}">
   <meta property="og:image" content="/img/opengraph/opengraph.jpg">

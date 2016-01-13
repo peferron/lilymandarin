@@ -1,11 +1,10 @@
 # Site settings
-title: LilyMandarin | Leçons de chinois à Bordeaux
+title: Cours de chinois à Bordeaux
 appname: LilyMandarin
-description: >
-  Le chinois, une langue d'avenir. Pro : boostez votre performance professionnelle. Parents :
-  développez le potentiel de votre enfant.
-
-url: "http://lilymandarin.com"
+description: >-
+    Le chinois, une langue d'avenir. Pro : boostez votre performance professionnelle. Parents :
+    développez le potentiel de votre enfant.
+url: "https://lilymandarin.com"
 
 # Build settings
 markdown: redcarpet
