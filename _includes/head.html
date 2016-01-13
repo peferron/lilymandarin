@@ -15,6 +15,12 @@
 
   <link rel="canonical" href="{{ site.url }}{{ page.url | replace:'index.html','' }}">
 
+  <meta property="og:url" content="{{ site.url }}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="{{ site.description }}">
+  <meta property="og:site_name" content="{{ site.appname }}">
+  <meta property="og:image" content="/img/opengraph/opengraph.jpg">
+
   <script>
     window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
     ga('create', 'UA-46097386-1', 'auto');
