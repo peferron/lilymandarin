@@ -10,7 +10,6 @@ url: "https://lilymandarin.com"
 markdown: redcarpet
 permalink: pretty
 exclude:
-  - CNAME
   - Gemfile
   - Gemfile.lock
   - LICENSE
