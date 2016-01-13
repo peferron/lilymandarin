@@ -1,6 +1,15 @@
 const gulp = require('gulp');
 const autoprefixer = require('gulp-autoprefixer');
 const spawn = require('child_process').spawn;
+const imagemin = require('gulp-imagemin');
+const pngquant = require('imagemin-pngquant');
+const pngout = require('imagemin-pngout');
+const advpng = require('imagemin-advpng');
+const mozjpeg = require('imagemin-mozjpeg');
+const jpegoptim = require('imagemin-jpegoptim');
+const jpegtran = require('imagemin-jpegtran');
+const svgo = require('imagemin-svgo');
+const del = require('del');
 
 // Build Jekyll site
 
@@ -12,16 +21,47 @@ gulp.task('jekyll', callback => {
     });
 });
 
-// Prefix css
+// Clean dist
 
-gulp.task('autoprefix', ['jekyll'], () =>
-    gulp.src('_site/css/main.css')
+gulp.task('clean-dist', () =>
+    del('dist')
+);
+
+// Copy _site to dist
+
+gulp.task('create-dist', ['jekyll', 'clean-dist'], () =>
+    gulp.src('_site/**/*')
+        .pipe(gulp.dest('dist'))
+);
+
+// Prefix CSS
+
+gulp.task('prefix-css', ['create-dist'], () =>
+    gulp.src('_site/css/**/*.css', {base: '_site'})
         .pipe(autoprefixer({
             browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'ie >= 8']
         }))
-        .pipe(gulp.dest('dist/css'))
+        .pipe(gulp.dest('dist'))
+);
+
+// Optimize images
+
+gulp.task('optimize-img', ['create-dist'], () =>
+    gulp.src('_site/img/**/*.{png,jpg,svg}', {base: '_site'})
+        // Running lossy optimizers first, then lossless second, usually gives the best results.
+        .pipe(imagemin({use: [
+            pngquant({quality: '50-70'}),
+            pngout(),
+            advpng(),
+            mozjpeg({quality: 90}),
+            jpegoptim({progressive: true}),
+            jpegtran({progressive: true}),
+            svgo()
+        ]}))
+        .pipe(gulp.dest('dist'))
 );
 
 // Build dist
 
-gulp.task('build', ['jekyll', 'autoprefix']);
+// We currently rely on CloudFlare for minifying JS, CSS and HTML.
+gulp.task('build', ['create-dist', 'prefix-css', 'optimize-img']);

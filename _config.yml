@@ -17,6 +17,9 @@ exclude:
   - README.md
   - watch
   - npm-debug.log
+  - node_modules
+  - gulpfile.js
+  - package.json
 defaults:
   -
     values:
