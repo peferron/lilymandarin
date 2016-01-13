@@ -504,10 +504,16 @@ section + section {
   height: 100vh;
   min-height: 30rem;
   position: relative;
-  background-image: url("../img/pudong/pudong.jpg");
+  background-image: url("../img/pudong/pudong_1121w.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center; }
+  @media screen and (min-width: 1122px), screen and (min-width: 561px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 561px) and (min-resolution: 2dppx), screen and (min-width: 374px) and (-webkit-min-device-pixel-ratio: 3), screen and (min-width: 374px) and (min-resolution: 3dppx) {
+    .home__top {
+      background-image: url("../img/pudong/pudong_2242w.jpg"); } }
+  @media screen and (min-width: 2243px), screen and (min-width: 1122px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1122px) and (min-resolution: 2dppx), screen and (min-width: 748px) and (-webkit-min-device-pixel-ratio: 3), screen and (min-width: 748px) and (min-resolution: 3dppx) {
+    .home__top {
+      background-image: url("../img/pudong/pudong_4485w.jpg"); } }
 
 .home__title, .home__subtitle__container {
   text-align: center;
