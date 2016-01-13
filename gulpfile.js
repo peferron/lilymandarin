@@ -10,6 +10,7 @@ const jpegoptim = require('imagemin-jpegoptim');
 const jpegtran = require('imagemin-jpegtran');
 const svgo = require('imagemin-svgo');
 const del = require('del');
+const ghPages = require('gulp-gh-pages');
 
 // Build Jekyll site
 
@@ -65,3 +66,12 @@ gulp.task('optimize-img', ['create-dist'], () =>
 
 // We currently rely on CloudFlare for minifying JS, CSS and HTML.
 gulp.task('build', ['create-dist', 'prefix-css', 'optimize-img']);
+
+// Deploy to Github Pages
+
+gulp.task('deploy', ['build'], () =>
+    gulp.src('dist/**/*')
+        .pipe(ghPages({
+            branch: 'gh-pages-private'
+        }))
+);
