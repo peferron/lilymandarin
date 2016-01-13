@@ -22,7 +22,7 @@
 
     var bg = document.querySelector('.home__background--high-res');
     var bgImage = getComputedStyle(bg).backgroundImage;
-    var bgImageUrl = bgImage.split('"')[1];
+    var bgImageUrl = /(?:\(['|"]?)(.*?)(?:['|"]?\))/.exec(bgImage)[1];
 
     var img = new Image();
     img.addEventListener('load', function() {
