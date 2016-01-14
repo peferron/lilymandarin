@@ -764,8 +764,7 @@ section + section {
 
 .review__photo__name {
   text-align: center;
-  font-weight: 500;
-  color: #666; }
+  font-weight: 500; }
 
 .review__text {
   white-space: pre-line;
@@ -868,8 +867,8 @@ footer {
   padding-bottom: 2rem;
   max-width: 100rem;
   margin: 0 auto; }
-  .footer__content a {
-    color: #333; }
+  .footer__content, .footer__content a {
+    color: #999; }
 
 @media print {
   body {
