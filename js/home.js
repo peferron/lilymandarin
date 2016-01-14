@@ -4,13 +4,24 @@
     //
 
     var homeTop = document.querySelector('.home__top');
-    var windowWidth;
+    var windowHeightIndicator = document.querySelector('.home__window-height-indicator');
+    var previousWindowWidth;
 
     function onWindowResize() {
-        if (window.innerWidth !== windowWidth) {
-            windowWidth = window.innerWidth;
-            homeTop.style.height = window.innerHeight + 'px';
+        // On Android, window.innerHeight changes during scrolling because the toolbars become
+        // hidden. To prevent a jarring resize, we only update the height if the width has also
+        // changed, i.e. the device was flipped between portrait and landscape.
+        if (previousWindowWidth === window.innerWidth) {
+            return;
         }
+        previousWindowWidth = window.innerWidth;
+
+        // iOS issue: when the DOM loaded event is sent, window.innerHeight is bigger than the
+        // real window height because it does not account for the toolbar height.
+        // A workaround is to use a setInterval or requestAnimationFrame, but it still causes
+        // some visual jarring because the first frame shown does not have the correct height.
+        // A better workaround, used here, is to get the height of a fixed element instead.
+        homeTop.style.height = windowHeightIndicator.clientHeight + 'px';
     }
 
     window.addEventListener('resize', onWindowResize);
