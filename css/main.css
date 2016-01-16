@@ -714,6 +714,10 @@ section + section {
   .module ul {
     margin-bottom: 0; }
 
+.contact__email {
+  font-weight: 500;
+  color: #333; }
+
 @media screen and (min-width: 414px) {
   .navbar__item {
     font-size: 1.5rem; } }
