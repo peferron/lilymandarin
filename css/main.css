@@ -629,6 +629,8 @@ section + section {
 .subpage__title {
   text-align: center;
   font-weight: 300; }
+  .subpage__title a, .subpage__title a:visited, .subpage__title a:hover {
+    color: #333; }
 
 .navbar {
   max-width: 100rem;
