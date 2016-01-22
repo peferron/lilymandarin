@@ -48,14 +48,14 @@
     var homeBottom = document.querySelector('.home__bottom');
     function getHomeBottomScrollToY() {
         return Math.min(
-            document.documentElement.scrollTop + homeBottom.getBoundingClientRect().top,
+            window.pageYOffset + homeBottom.getBoundingClientRect().top,
             document.documentElement.scrollHeight - windowHeightIndicator.clientHeight
         );
     }
 
     var homeTaglineArrow = document.querySelector('.home__tagline__arrow');
     function updateTaglineArrow() {
-        var opacity = 1 - (document.documentElement.scrollTop / getHomeBottomScrollToY()) * 2;
+        var opacity = 1 - (window.pageYOffset / getHomeBottomScrollToY()) * 2;
         var normalizedOpacity = Math.max(0, Math.min(1, opacity));
         homeTaglineArrow.style.opacity = normalizedOpacity;
     }
@@ -89,7 +89,7 @@
     }
 
     function smoothScroll(toY, duration) {
-        var fromY = document.documentElement.scrollTop;
+        var fromY = window.pageYOffset;
         var deltaY = toY - fromY;
         var startTimestamp;
 
