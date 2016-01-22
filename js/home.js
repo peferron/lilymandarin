@@ -45,22 +45,17 @@
     // Fade tagline arrow when scrolling.
     //
 
-    function getScrollRatio() {
-        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-        var scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
-        var clientHeight = document.documentElement.clientHeight;
-        return scrollTop / (scrollHeight - clientHeight);
+    var homeBottom = document.querySelector('.home__bottom');
+    function getHomeBottomScrollToY() {
+        return Math.min(
+            document.documentElement.scrollTop + homeBottom.getBoundingClientRect().top,
+            document.documentElement.scrollHeight - windowHeightIndicator.clientHeight
+        );
     }
 
     var homeTaglineArrow = document.querySelector('.home__tagline__arrow');
     function updateTaglineArrow() {
-        var scrollRatio = getScrollRatio();
-
-        var heightEm = (1 - scrollRatio * 2) * 0.5;
-        var normalizedHeightEm = Math.max(0, Math.min(0.5, heightEm));
-        homeTaglineArrow.style.height = normalizedHeightEm + 'em';
-
-        var opacity = 1 - scrollRatio * 4;
+        var opacity = 1 - (document.documentElement.scrollTop / getHomeBottomScrollToY()) * 2;
         var normalizedOpacity = Math.max(0, Math.min(1, opacity));
         homeTaglineArrow.style.opacity = normalizedOpacity;
     }
@@ -108,13 +103,8 @@
         });
     }
 
-    var homeBottom = document.querySelector('.home__bottom');
     document.querySelector('.home__tagline').addEventListener('click', function(event) {
-        var toY = Math.min(
-            document.documentElement.scrollTop + homeBottom.getBoundingClientRect().top,
-            document.documentElement.scrollHeight - windowHeightIndicator.clientHeight
-        );
-        smoothScroll(toY, 1000);
+        smoothScroll(getHomeBottomScrollToY(), 1000);
         // Prevent adding the anchor to the URL; it's only a fallback for when JS is disabled.
         event.preventDefault();
     });
