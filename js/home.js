@@ -8,9 +8,9 @@
     var previousWindowWidth;
 
     function onWindowResize() {
-        // On Android, window.innerHeight changes during scrolling because the toolbars become
+        // On Android, window.innerHeight deltas during scrolling because the toolbars become
         // hidden. To prevent a jarring resize, we only update the height if the width has also
-        // changed, i.e. the device was flipped between portrait and landscape.
+        // deltad, i.e. the device was flipped between portrait and landscape.
         if (previousWindowWidth === window.innerWidth) {
             return;
         }
@@ -40,4 +40,82 @@
         bg.className += ' home__background--high-res--loaded';
     });
     img.src = bgImageUrl;
+
+    //
+    // Fade tagline arrow when scrolling.
+    //
+
+    function getScrollRatio() {
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        var scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+        var clientHeight = document.documentElement.clientHeight;
+        return scrollTop / (scrollHeight - clientHeight);
+    }
+
+    var homeTaglineArrow = document.querySelector('.home__tagline__arrow');
+    function updateTaglineArrow() {
+        var scrollRatio = getScrollRatio();
+
+        var heightEm = (1 - scrollRatio * 2) * 0.5;
+        var normalizedHeightEm = Math.max(0, Math.min(0.5, heightEm));
+        homeTaglineArrow.style.height = normalizedHeightEm + 'em';
+
+        var opacity = 1 - scrollRatio * 4;
+        var normalizedOpacity = Math.max(0, Math.min(1, opacity));
+        homeTaglineArrow.style.opacity = normalizedOpacity;
+    }
+    updateTaglineArrow();
+
+    var waitingForAnimationFrame = false;
+    window.addEventListener('scroll', function() {
+        if (!waitingForAnimationFrame) {
+            waitingForAnimationFrame = true;
+            requestAnimationFrame(function() {
+                updateTaglineArrow();
+                waitingForAnimationFrame = false;
+            });
+        }
+    });
+
+    //
+    // Scroll down homepage on tagline click.
+    //
+
+    function easeInOut(value, duration, elapsed) {
+        if (elapsed >= duration) {
+            return value;
+        }
+        elapsed /= duration / 2;
+        if (elapsed < 1) {
+            return value / 2 * elapsed * elapsed;
+        }
+        elapsed -= 1;
+        return -value / 2 * (elapsed * (elapsed - 2) - 1);
+    }
+
+    function smoothScroll(toY, duration) {
+        var fromY = document.documentElement.scrollTop;
+        var deltaY = toY - fromY;
+        var startTimestamp;
+
+        requestAnimationFrame(function animateScroll(timestamp) {
+            startTimestamp = startTimestamp || timestamp;
+            var currentY = fromY + easeInOut(deltaY, duration, timestamp - startTimestamp);
+            window.scroll(0, currentY);
+            if (currentY < toY) {
+                requestAnimationFrame(animateScroll);
+            }
+        });
+    }
+
+    var homeBottom = document.querySelector('.home__bottom');
+    document.querySelector('.home__tagline').addEventListener('click', function(event) {
+        var toY = Math.min(
+            document.documentElement.scrollTop + homeBottom.getBoundingClientRect().top,
+            document.documentElement.scrollHeight - windowHeightIndicator.clientHeight
+        );
+        smoothScroll(toY, 1000);
+        // Prevent adding the anchor to the URL; it's only a fallback for when JS is disabled.
+        event.preventDefault();
+    });
 }());
