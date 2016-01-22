@@ -40,4 +40,40 @@
         bg.className += ' home__background--high-res--loaded';
     });
     img.src = bgImageUrl;
+
+    //
+    // Fade tagline arrow when scrolling.
+    //
+
+    function getScrollRatio() {
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        var scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+        var clientHeight = document.documentElement.clientHeight;
+        return scrollTop / (scrollHeight - clientHeight);
+    }
+
+    var homeTaglineArrow = document.querySelector('.home__tagline__arrow');
+    function updateTaglineArrow() {
+        var scrollRatio = getScrollRatio();
+
+        var heightEm = (1 - scrollRatio * 2) * 0.5;
+        var normalizedHeightEm = Math.max(0, Math.min(0.5, heightEm));
+        homeTaglineArrow.style.height = normalizedHeightEm + 'em';
+
+        var opacity = 1 - scrollRatio * 4;
+        var normalizedOpacity = Math.max(0, Math.min(1, opacity));
+        homeTaglineArrow.style.opacity = normalizedOpacity;
+    }
+    updateTaglineArrow();
+
+    var waitingForAnimationFrame = false;
+    window.addEventListener('scroll', function() {
+        if (!waitingForAnimationFrame) {
+            waitingForAnimationFrame = true;
+            requestAnimationFrame(function() {
+                updateTaglineArrow();
+                waitingForAnimationFrame = false;
+            });
+        }
+    });
 }());

@@ -64,11 +64,42 @@
     bottom: 0
     left: 0
     width: 100%
-    text-align: center
     background: $gray-bg-color
     box-sizing: border-box
     font-weight: $bold-font-weight
-    padding: 1rem 0
+    line-height: 0
+    text-align: center
+
+.home__tagline__text
+    margin: 1rem 0
+    line-height: 1.6
+
+.home__tagline__arrow
+    height: 0.5em
+    position: relative
+    div
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 100%
+    span
+        height: 1.2em
+        width: 0.7em
+        // Inlined and optimized ../img/_arrow/arrow-black.svg
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNyIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDcgMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEuNDY3IDBMNyA1LjUgMS40NjcgMTEgMCA5LjU0MiA0LjA2NiA1LjUgMCAxLjQ1OCAxLjQ2NyAweiIgZmlsbD0iIzMzMyIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+)
+        background-repeat: no-repeat
+        background-size: contain
+        background-position: 0 center
+        animation: bounce 0.8s linear infinite
+        display: inline-block
+
+@keyframes bounce
+    0%, 100%
+        transform: rotate(90deg) translateX(0.2em)
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1)
+    50%
+        transform: rotate(90deg) translateX(-0.2em)
+        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19)
 
 .home__bottom
     background: $white-bg-color
@@ -96,8 +127,8 @@
         font-size: $h4-font-size
     .home__subtitle
         height: 10.5rem
-    .home__tagline
-        padding: 2rem 0
+    .home__tagline__text
+        margin: 2rem 0
 
 @media screen and (min-width: 768px) // iPad
     .home__title
