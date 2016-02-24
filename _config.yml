@@ -7,7 +7,6 @@ description: >-
 url: "https://lilymandarin.com"
 
 # Build settings
-markdown: redcarpet
 permalink: pretty
 exclude:
   - Gemfile
