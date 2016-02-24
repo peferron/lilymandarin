@@ -14,11 +14,11 @@ const ghPages = require('gulp-gh-pages');
 
 // Build Jekyll site
 
-gulp.task('jekyll', callback => {
+gulp.task('jekyll', done => {
     const jekyll = spawn('jekyll', ['build'], {stdio: 'inherit'});
     jekyll.on('exit', code => {
         const err = code === 0 ? null : `ERROR: Jekyll process exited with code: ${code}`;
-        callback(err);
+        done(err);
     });
 });
 
