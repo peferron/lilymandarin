@@ -787,6 +787,10 @@ section + section {
 .particulier__situation ul {
   font-weight: 500; }
 
+.particulier__free {
+  font-weight: 500;
+  color: green; }
+
 .review {
   font-size: 1.5rem; }
   .review:nth-child(2n+1) {
