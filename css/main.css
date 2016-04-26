@@ -549,10 +549,9 @@ section + section {
 .home__background--high-res--loaded {
   opacity: 1; }
 
-.home__title, .home__subtitle__container {
+.home__title, .home__subtitle__container, .home__contact a {
   text-align: center;
-  color: white;
-  opacity: 1; }
+  color: white; }
 
 .home__title {
   font-size: 5rem;
@@ -565,6 +564,13 @@ section + section {
   background-size: contain;
   background-position: center bottom;
   height: 8rem; }
+
+.home__contact {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.8rem; }
+  .home__contact .contact__email {
+    font-weight: 300; }
 
 .home__subtitle, .home__tagline {
   font-size: 1.8rem; }

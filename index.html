@@ -53,9 +53,7 @@
 </head>
 
   <body class="home">
-    <article><script defer src="js/home.js"></script>
-
-<div class="home__window-height-indicator"></div>
+    <article><div class="home__window-height-indicator"></div>
 
 <div class="home__top">
   <div class="home__background home__background--thumbnail"></div>
@@ -69,6 +67,12 @@
   <div class="home__title">LilyMandarin</div>
   <div class="home__subtitle__container">
     <span class="home__subtitle">Cours de chinois à Bordeaux</span>
+  </div>
+  <div class="home__contact">
+    <a class="contact__email" href="mailto:yan@lilymandarin.com">yan@lilymandarin.com</a>
+<br>
+    <a class="contact__tel" href="tel:+33787827414">07 87 82 74 14</a>
+<br>
   </div>
   <a class="home__tagline" href="#content">
     Le chinois, une langue d'avenir
@@ -115,6 +119,11 @@
     </section>
   </div>
 </div>
+
+<!-- Saw a console error in chrome saying that the result of a document.querySelector() was not a
+  DOM element. That's strange, since the defer attribute means that the script is supposed to run
+  after the page has finished parsing. To be safe, let's keep this script at the bottom. -->
+<script async defer src="js/home.js"></script>
 </article>
     <footer>
       <div class="footer__content">
