@@ -3,8 +3,6 @@ layout: default
 class: home
 ---
 
-<script defer src="js/home.js"></script>
-
 <div class="home__window-height-indicator"></div>
 
 <div class="home__top">
@@ -69,3 +67,8 @@ class: home
     </section>
   </div>
 </div>
+
+<!-- Saw a console error in chrome saying that the result of a document.querySelector() was not a
+  DOM element. That's strange, since the defer attribute means that the script is supposed to run
+  after the page has finished parsing. To be safe, let's keep this script at the bottom. -->
+<script async defer src="js/home.js"></script>
