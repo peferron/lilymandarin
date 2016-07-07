@@ -1,13 +1,15 @@
-.home__window-height-indicator
+$home-top-height: 0.7
+
+.home__top-height-indicator
     position: fixed
     top: 0
     left: 0
     width: 0
-    height: 100%
+    height: $home-top-height * 100%
     z-index: 0
 
 .home__top
-    height: 100vh
+    height: $home-top-height * 100vh
     min-height: 30rem
     position: relative
     z-index: 1
@@ -78,32 +80,6 @@
     padding: 2rem 0
     &, &:hover, &:visited
         color: $default-text-color
-
-.home__tagline__arrow__container
-    height: 1.2em
-    position: absolute
-    bottom: 0
-    left: 0
-    width: 100%
-
-.home__tagline__arrow
-    display: inline-block
-    height: 1.2em
-    width: 0.7em
-    // Inlined and optimized ../img/_arrow/arrow-black.svg
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNyIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDcgMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEuNDY3IDBMNyA1LjUgMS40NjcgMTEgMCA5LjU0MiA0LjA2NiA1LjUgMCAxLjQ1OCAxLjQ2NyAweiIgZmlsbD0iIzMzMyIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+)
-    background-repeat: no-repeat
-    background-size: contain
-    background-position: 0 center
-    animation: bounce 0.8s linear infinite
-
-@keyframes bounce
-    0%, 100%
-        transform: rotate(90deg) translateX(0.25em)
-        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1)
-    50%
-        transform: rotate(90deg) translateX(0)
-        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19)
 
 .home__bottom
     background: $white-bg-color

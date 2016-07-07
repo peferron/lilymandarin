@@ -4,7 +4,7 @@
     //
 
     var homeTop = document.querySelector('.home__top');
-    var windowHeightIndicator = document.querySelector('.home__window-height-indicator');
+    var windowHeightIndicator = document.querySelector('.home__top-height-indicator');
     var previousWindowWidth;
 
     function onWindowResize() {
@@ -40,72 +40,4 @@
         bg.className += ' home__background--high-res--loaded';
     });
     img.src = bgImageUrl;
-
-    //
-    // Fade tagline arrow when scrolling.
-    //
-
-    var homeBottom = document.querySelector('.home__bottom');
-    function getHomeBottomScrollToY() {
-        return Math.min(
-            window.pageYOffset + homeBottom.getBoundingClientRect().top,
-            document.documentElement.scrollHeight - windowHeightIndicator.clientHeight
-        );
-    }
-
-    var homeTaglineArrow = document.querySelector('.home__tagline__arrow');
-    function updateTaglineArrow() {
-        var opacity = 1 - (window.pageYOffset / getHomeBottomScrollToY()) * 2;
-        var normalizedOpacity = Math.max(0, Math.min(1, opacity));
-        homeTaglineArrow.style.opacity = normalizedOpacity;
-    }
-    updateTaglineArrow();
-
-    var waitingForAnimationFrame = false;
-    window.addEventListener('scroll', function() {
-        if (!waitingForAnimationFrame) {
-            waitingForAnimationFrame = true;
-            requestAnimationFrame(function() {
-                updateTaglineArrow();
-                waitingForAnimationFrame = false;
-            });
-        }
-    });
-
-    //
-    // Scroll down homepage on tagline click.
-    //
-
-    function easeInOut(value, duration, elapsed) {
-        if (elapsed >= duration) {
-            return value;
-        }
-        elapsed /= duration / 2;
-        if (elapsed < 1) {
-            return value / 2 * elapsed * elapsed;
-        }
-        elapsed -= 1;
-        return -value / 2 * (elapsed * (elapsed - 2) - 1);
-    }
-
-    function smoothScroll(toY, duration) {
-        var fromY = window.pageYOffset;
-        var deltaY = toY - fromY;
-        var startTimestamp;
-
-        requestAnimationFrame(function animateScroll(timestamp) {
-            startTimestamp = startTimestamp || timestamp;
-            var currentY = fromY + easeInOut(deltaY, duration, timestamp - startTimestamp);
-            window.scroll(0, currentY);
-            if (currentY < toY) {
-                requestAnimationFrame(animateScroll);
-            }
-        });
-    }
-
-    document.querySelector('.home__tagline').addEventListener('click', function(event) {
-        smoothScroll(getHomeBottomScrollToY(), 1000);
-        // Prevent adding the anchor to the URL; it's only a fallback for when JS is disabled.
-        event.preventDefault();
-    });
 }());
