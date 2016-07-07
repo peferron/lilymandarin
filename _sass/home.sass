@@ -124,6 +124,28 @@
 .home__or
     margin: 0.5rem
 
+.home__brands
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-around
+
+.home__brand
+    -webkit-filter: grayscale(1)
+    filter: grayscale(1)
+    opacity: 0.6
+    width: 40%
+    display: flex
+    align-items: center
+    justify-content: center
+
+.home__brand--ca-advisors
+    opacity: 0.9
+
+.home__brand__img
+    width: 100%
+    .home__brand--globaleye &
+        width: 80%
+
 @media screen and (min-width: 414px) // iPhone 6 Plus
     .home__title
         padding-top: 2rem
@@ -144,3 +166,9 @@
     .home__or
         display: inline-block
         margin: 0 1rem
+    .home__brands
+        justify-content: space-between
+    .home__brand
+        width: 26%
+
+
