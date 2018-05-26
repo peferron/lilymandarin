@@ -5,18 +5,18 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
-    "del": "^2.2.0",
+    "del": "^3.0.0",
     "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^3.1.0",
+    "gulp-autoprefixer": "^5.0.0",
     "gulp-gh-pages": "^0.5.4",
-    "gulp-imagemin": "^2.4.0",
-    "imagemin-advpng": "^3.1.0",
-    "imagemin-jpegoptim": "^4.1.0",
-    "imagemin-jpegtran": "^4.3.2",
-    "imagemin-mozjpeg": "^5.1.0",
-    "imagemin-pngout": "^2.0.0",
-    "imagemin-pngquant": "^4.2.0",
-    "imagemin-svgo": "^4.2.0"
+    "gulp-imagemin": "^4.1.0",
+    "imagemin-advpng": "^4.0.0",
+    "imagemin-jpegoptim": "^5.2.0",
+    "imagemin-jpegtran": "^5.0.2",
+    "imagemin-mozjpeg": "^7.0.0",
+    "imagemin-pngout": "^3.0.0",
+    "imagemin-pngquant": "^5.1.0",
+    "imagemin-svgo": "^6.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
