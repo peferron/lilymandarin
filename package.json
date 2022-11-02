@@ -6,7 +6,7 @@
   "dependencies": {},
   "devDependencies": {
     "del": "^3.0.0",
-    "gulp": "^3.9.0",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-gh-pages": "^0.5.4",
     "gulp-imagemin": "^4.1.0",
